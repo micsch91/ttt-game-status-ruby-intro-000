@@ -38,3 +38,17 @@ def won?(board)
     position_taken?(board, combo[0])
   end
 end
+
+def full?(board)
+  board.all? { |index| index == "X" || index == "0" }
+end
+
+def draw?(board)
+  if !won?(board) && full?(board)
+    return true
+  elsif !won?(board) && !full?(board)
+    return false
+  else won?(board)
+    return false
+  end
+end
